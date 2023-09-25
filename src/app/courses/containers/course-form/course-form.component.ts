@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, NonNullableFormBuilder, Validators} from "@angular/forms";
+import {FormGroup, NonNullableFormBuilder, UntypedFormArray, Validators} from "@angular/forms";
 import {CoursesService} from "../courses/services/courses.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Location} from "@angular/common";
@@ -35,9 +35,6 @@ export class CourseFormComponent implements OnInit {
       category: [course.category, [Validators.required]],
       lessons: this.formBuilder.array(this.retriveLessons(course))
     });
-    console.log(this.form);
-    console.log(this.form.value);
-
   }
 
   private retriveLessons(course: Course) {
@@ -91,5 +88,9 @@ export class CourseFormComponent implements OnInit {
     }
 
     return 'erro';
+  }
+
+  getLessonsFormArray(){
+    return (<UntypedFormArray>this.form.get('lessons')).controls;
   }
 }
