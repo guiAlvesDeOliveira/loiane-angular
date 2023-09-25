@@ -13,8 +13,8 @@
       <mat-form-field class="full-width">
         <mat-label>Categoria</mat-label>
         <mat-select formControlName="category">
-          <mat-option value="Front-end">Front-End</mat-option>
-          <mat-option value="Back-end">Back-End</mat-option>
+          <mat-option value="FRONT-END">Front-End</mat-option>
+          <mat-option value="BACK-END">Back-End</mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('category')?.invalid">{{formUtils.getErrorMessage(form, 'category')}}</mat-error>
       </mat-form-field>
